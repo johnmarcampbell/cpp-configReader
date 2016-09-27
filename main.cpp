@@ -1,14 +1,15 @@
 #include "configReader.cpp"
-int main()
+int main(int argc, char** argv)
 {
-    // ConfigReader cr("sample.config");
-    ConfigReader cr;
-    cr.setSectionString("@");
-    cr.readFile("sample.config");
+    // Default filename
+    string fileName = "sample.config";
+    if(argc >= 2) { fileName = argv[1]; }
 
-    cr.set("parameter1", "value1");
+    ConfigReader cr(fileName);
+
     cout << cr.get("key1") << endl;
-    cout << cr.get("b2", "beta") << endl;
-    return 0;
+    cout << cr.get("betaKey1", "beta") << endl;
+    cout << cr.get("alphaKey1", "alpha") << endl;
 
+    return 0;
 }
