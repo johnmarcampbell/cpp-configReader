@@ -9,9 +9,10 @@ using namespace std;
 class ConfigReader
 {
     public:
-        ConfigReader();
-        ConfigReader(string fileName);
-        ~ConfigReader();
+        ConfigReader(){};
+        ConfigReader(string fileName)
+            { readFile(fileName); }
+        ~ConfigReader(){};
 
         void readFile(string fileName);
         string get(string key, string section = "default")
