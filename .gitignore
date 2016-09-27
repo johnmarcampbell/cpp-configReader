@@ -1,0 +1,8 @@
+# object files
+*.o
+
+# swap files
+*.swp
+
+# config files
+*.config
