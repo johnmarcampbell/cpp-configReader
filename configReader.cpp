@@ -4,6 +4,11 @@ ConfigReader::ConfigReader()
 {
 }
 
+ConfigReader::ConfigReader(string fileName)
+{
+    readFile(fileName);
+}
+
 ConfigReader::~ConfigReader()
 {
 }
