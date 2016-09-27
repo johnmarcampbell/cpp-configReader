@@ -1,5 +1,19 @@
 #include "configReader.h"
 
+ConfigReader::ConfigReader()
+{
+    mCommentString = "#";
+    mSectionString = "%";
+}
+
+ConfigReader::ConfigReader(string fileName)
+{
+    mCommentString = "#";
+    mSectionString = "%";
+    readFile(fileName);
+}
+
+
 void ConfigReader::readFile(string fileName)
 {
     ifstream configFile(fileName.c_str());
@@ -7,7 +21,8 @@ void ConfigReader::readFile(string fileName)
     string sectionName = "default";
 
     while (getline(configFile, line)) {
-        if( line.find("%", 0) == 0 ) {
+        if( line.find(mCommentString, 0) == 0) { continue; }
+        if( line.find(mSectionString, 0) == 0 ) {
             sectionName = line.substr(1, line.length());
             continue;
         }

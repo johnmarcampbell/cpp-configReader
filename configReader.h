@@ -9,9 +9,8 @@ using namespace std;
 class ConfigReader
 {
     public:
-        ConfigReader(){};
-        ConfigReader(string fileName)
-            { readFile(fileName); }
+        ConfigReader();
+        ConfigReader(string fileName);
         ~ConfigReader(){};
 
         void readFile(string fileName);
@@ -19,6 +18,12 @@ class ConfigReader
             { return options[section][key]; }
         void set(string key, string value, string section = "default")
             { options[section][key] = value; }
+
+        void setCommentString(string s) { mCommentString = s; }
+        void setSectionString(string s) { mSectionString = s; }
+
+        string mCommentString;
+        string mSectionString;
 
     private:
         map<string, map<string, string> > options;
