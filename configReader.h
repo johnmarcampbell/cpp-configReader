@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <map>
 
@@ -12,7 +14,8 @@ class ConfigReader
         ~ConfigReader();
 
         void readFile(string fileName);
-        string get(string key, string section);
+        string get(string key, string section = "default")
+            { return options[section][key]; }
 
     private:
         map<string, map<string, string> > options;
