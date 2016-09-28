@@ -15,7 +15,7 @@ class ConfigReader
     public:
         ConfigReader();
         ConfigReader(string fileName);
-        ~ConfigReader(){};
+        virtual ~ConfigReader(){};
 
         void readFile(string fileName);
         string get(string key, string section = "default")
