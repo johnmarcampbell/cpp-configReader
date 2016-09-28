@@ -1,6 +1,6 @@
 exampleRootMacro()
 {
-    gSystem->Load("configReader");
+    gSystem->Load("ConfigReader");
 
 
     string fileName = "sample.config";
@@ -8,5 +8,13 @@ exampleRootMacro()
 
     cout << cr.get("key1") << endl;
     cout << cr.get("betaKey1", "beta") << endl;
-    cout << cr.get("alphaKey1", "alpha") << endl;
+    vector<string> alphas = cr.getV("alphaKey1", "alpha") ;
+
+    for(unsigned i = 0; i <= (alphas.size() - 1); i++)
+    {
+        cout << alphas.at(i) << endl;
+    }
+
+
+
 }

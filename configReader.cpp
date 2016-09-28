@@ -39,3 +39,21 @@ void ConfigReader::readFile(string fileName)
         }
     } //end while
 }
+vector<string> ConfigReader::getV(string key, string section, string delim )
+{
+    string valString = get(key, section);
+    vector<string> valVector;
+    int delimPosition = valString.find(delim, 0);
+
+    while( delimPosition >= 0 )
+    {
+        valVector.push_back( valString.substr(0, delimPosition) );
+        valString = valString.substr( delimPosition + 1, valString.length() - 1 );
+        delimPosition = valString.find(delim, 0);
+    }
+
+    // Get last item
+    valVector.push_back(valString); 
+
+    return valVector;
+}

@@ -20,6 +20,8 @@ class ConfigReader
         void readFile(string fileName);
         string get(string key, string section = "default")
             { return options[section][key]; }
+        vector<string> getV(string key, string section = "default",
+                            string delim = " ");
         void set(string key, string value, string section = "default")
             { options[section][key] = value; }
 
