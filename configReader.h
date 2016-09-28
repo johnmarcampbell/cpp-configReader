@@ -6,6 +6,10 @@
 
 using namespace std;
 
+#ifdef __ROOT__
+#include "TObject.h"
+#endif
+
 class ConfigReader
 {
     public:
@@ -28,4 +32,7 @@ class ConfigReader
     private:
         map<string, map<string, string> > options;
 
+        #ifdef __ROOT__
+        ClassDef(ConfigReader,1)
+        #endif
 };

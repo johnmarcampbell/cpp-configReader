@@ -1,5 +1,9 @@
 #include "configReader.h"
 
+#ifdef __ROOT__
+ClassImp(ConfigReader)
+#endif
+
 ConfigReader::ConfigReader()
 {
     mCommentString = "#";
@@ -12,7 +16,6 @@ ConfigReader::ConfigReader(string fileName)
     mSectionString = "%";
     readFile(fileName);
 }
-
 
 void ConfigReader::readFile(string fileName)
 {
