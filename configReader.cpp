@@ -57,3 +57,31 @@ vector<string> ConfigReader::getV(string key, string section, string delim )
 
     return valVector;
 }
+
+vector<int> ConfigReader::getVI(string key, string section, string delim)
+{
+    vector<string> stringVector = getV(key, section, delim);
+    vector<int> intVector;
+
+    for(unsigned i = 0; i <= (stringVector.size() - 1); i++)
+    {
+        int element = atoi( stringVector.at(i).c_str() );
+        intVector.push_back(element);
+    }
+
+    return intVector;
+}
+
+vector<float> ConfigReader::getVF(string key, string section, string delim)
+{
+    vector<string> stringVector = getV(key, section, delim);
+    vector<float> floatVector;
+
+    for(unsigned i = 0; i <= (stringVector.size() - 1); i++)
+    {
+        float element = atof( stringVector.at(i).c_str() );
+        floatVector.push_back(element);
+    }
+
+    return floatVector;
+}
